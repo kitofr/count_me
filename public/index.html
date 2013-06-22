@@ -13,7 +13,8 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-    
+      .success{ color: #6A6; }
+      .fail { color: #A66; }
       div.center {
         text-align: center;
       }
@@ -22,7 +23,7 @@
   <body>
     <div class="container" ng-controller="QuestionCtrl">
       <div class="hero-unit" style="text-align:center; ">
-        <h1>{{model.question}}</h1>
+        <h1 ng-init="newQuestion()">{{question}}</h1>
         <h3 ng-class="{success: isCorrect(), fail: !isCorrect() }" >{{message}}</h3>
         <button class="btn btn-primary btn-large" ng-show="isCorrect()" ng-click="newQuestion()">Another Question?</button>
       </div>
