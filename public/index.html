@@ -23,7 +23,7 @@
     <div class="container" ng-controller="QuestionCtrl">
       <div class="hero-unit" style="text-align:center; ">
         <h1>{{model.question}}</h1>
-        <h3 ng-class="{success: model.isCorrect(), fail: !model.isCorrect() }" >{{model.message}}</h3>
+        <h3 ng-class="{success: isCorrect(), fail: !isCorrect() }" >{{message}}</h3>
         <button class="btn btn-primary btn-large" ng-show="isCorrect()" ng-click="newQuestion()">Another Question?</button>
       </div>
       <div class="row">

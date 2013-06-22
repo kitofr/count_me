@@ -1,10 +1,17 @@
 angular.module('countme', ['ui.bootstrap']);
 
 function QuestionCtrl($scope){
-  $scope.model = {
+  var numbers = {
     question: 1,
     alternatives: [1,2,3,4,5]
   };
+
+  var roman = {
+    question: "I",
+    alternatives: ["I", "II", "III", "IV", "V"]
+  };
+
+  $scope.model = roman;
 
   $scope.clicked = function(alternative){
     $scope.lastAnswer = alternative;
