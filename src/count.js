@@ -8,7 +8,7 @@ function QuestionCtrl($scope){
 
   $scope.clicked = function(alternative){
     $scope.lastAnswer = alternative;
-    $scope.model.message = $scope.isCorrect() ? "You guessed correct!" : alternative + " is not " + $scope.model.question;
+    $scope.message = $scope.isCorrect() ? "You guessed correct!" : alternative + " is not " + $scope.model.question;
   };
 
   $scope.isCorrect = function(){
@@ -16,7 +16,7 @@ function QuestionCtrl($scope){
   };
 
   $scope.newQuestion = function(){
-    $scope.model.message = "";
+    $scope.message = "";
     $scope.lastAnswer = undefined;
     var index = Math.floor(Math.random() * 11) % $scope.model.alternatives.length;
     $scope.model.question = $scope.model.alternatives[index];
