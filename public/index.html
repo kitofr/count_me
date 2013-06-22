@@ -14,6 +14,9 @@
         padding-bottom: 40px;
       }
     
+      div.center {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -24,7 +27,7 @@
         <button class="btn btn-primary btn-large" ng-show="isCorrect()" ng-click="newQuestion()">Another Question?</button>
       </div>
       <div class="row">
-        <div class="span4" ng-repeat="alt in model.alternatives">
+        <div class="span2 center" ng-repeat="alt in model.alternatives">
           <button class="btn btn-primary btn-large" style="width: 100px" ng-click="clicked(alt)" >{{alt}}</button>
         </div>
       </div>

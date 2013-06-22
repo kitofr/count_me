@@ -3,7 +3,7 @@ angular.module('countme', ['ui.bootstrap']);
 function QuestionCtrl($scope){
   $scope.model = {
     question: 1,
-    alternatives: [1,2,3]
+    alternatives: [1,2,3,4,5]
   };
 
   $scope.clicked = function(alternative){
@@ -18,6 +18,7 @@ function QuestionCtrl($scope){
   $scope.newQuestion = function(){
     $scope.model.message = "";
     $scope.lastAnswer = undefined;
-    $scope.model.question = Math.floor(Math.random() * 11) % 3 + 1;
+    var index = Math.floor(Math.random() * 11) % $scope.model.alternatives.length;
+    $scope.model.question = $scope.model.alternatives[index];
   };
 }
