@@ -20,8 +20,22 @@
       }
     </style>
   </head>
-  <body>
-    <div class="container" ng-controller="QuestionCtrl">
+  <body ng-controller="QuestionCtrl">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Count me!</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a ng-click="initModel('numbers')">Numbers</a></li>
+              <li><a ng-click="initModel('roman')">Roman numbers</a></li>
+              <li><a ng-click="initModel('xes')">X-es</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
       <div class="hero-unit" style="text-align:center; ">
         <h1 ng-init="newQuestion()">{{question}}</h1>
         <h3 ng-class="{success: isCorrect(), fail: !isCorrect() }" >{{message}}</h3>

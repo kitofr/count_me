@@ -1,11 +1,13 @@
 angular.module('countme', ['ui.bootstrap']);
 
 function QuestionCtrl($scope){
-  var numbers = { alternatives: [1,2,3,4,5] };
-  var roman = { alternatives: ["I", "II", "III", "IV", "V"] };
-  var xes = { alternatives: ["x....", "xx...", "xxx..", "xxx.", "xxxx"] };
+  var strategy = {
+    numbers      : { alternatives: [1,2,3,4,5] },
+    roman        : { alternatives: ["I", "II", "III", "IV", "V"] },
+    xes          : { alternatives: ["x....", "xx...", "xxx..", "xxx.", "xxxx"] }
+  };
 
-  $scope.model = xes;
+  $scope.model = strategy.numbers;
 
   $scope.clicked = function(alternative){
     $scope.lastAnswer = alternative;
@@ -14,6 +16,11 @@ function QuestionCtrl($scope){
 
   $scope.isCorrect = function(){
     return $scope.question === $scope.lastAnswer;
+  };
+
+  $scope.initModel = function(model){
+    $scope.model = strategy[model];
+    $scope.newQuestion();
   };
 
   $scope.newQuestion = function(){
