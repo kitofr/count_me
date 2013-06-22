@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
-<html ng-app"count_me">
+<html ng-app="countme">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
     <script src="../lib/angular.js"></script>
     <script src="../lib/ui-bootstrap-tpls-0.3.0.js"></script>
-    <script src="../src/controllers/count.js"></script>
+    <script src="../src/count.js"></script>
     <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <title>Count Me!</title>
     <style type="text/css" media="all">
@@ -18,25 +17,14 @@
     </style>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">Count me!</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="#">Numbers</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="container" ng-controller="QuestionCtrl">
       <div class="hero-unit" style="text-align:center; ">
         <h1>{{model.question}}</h1>
-        <h3 ng-show="model.message" ng-class="{success: model.correct, fail: !model.correct }">{{model.message}}</h3>
+        <h3 ng-class="{success: model.isCorrect(), fail: !model.isCorrect() }" >{{model.message}}</h3>
+        <button class="btn btn-primary btn-large" ng-show="isCorrect()" ng-click="newQuestion()">Another Question?</button>
       </div>
       <div class="row">
-        <div class="span4" ng-repeat="alt in model.aternatives">
+        <div class="span4" ng-repeat="alt in model.alternatives">
           <button class="btn btn-primary btn-large" style="width: 100px" ng-click="clicked(alt)" >{{alt}}</button>
         </div>
       </div>
